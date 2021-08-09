@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="header">
+      <nav class="nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a class="active" href="/posts">Posts</a></li>
+          <li><a href="/posts/new">AddPost</a></li>
+          <li><a href="/logout">logout</a></li>
+        </ul>
+      </nav>
+
+      <div class="maincontainer">
+        <h1>Posts</h1>
+        <%for(let post of posts){ %>
+        <div class="card">
+          <img src="<%= post.images.url %> " alt="Avatar" style="width: 100%" />
+
+          <div class="container">
+            <h4 style="text-transform: capitalize">
+              <b><%= post.author.username %> </b>
+            </h4>
+
+            <p><%= post.description %></p>
+            <!-- <i class="far fa-thumbs-up"><span></span></i>
+            <button class="btn">comment</button> -->
+
+            <button class="btn">
+              <a href="/posts/<%= post.id %> "> View</a>
+            </button>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

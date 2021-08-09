@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="hero">
+      <nav class="nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <% if(!currentUser){ %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+          <% }else{ %>
+          <li><a href="/posts">Posts</a></li>
+          <li><a class="active" href="/posts/new">AddPost</a></li>
+          <li><a href="/logout">logout</a></li>
+          <% } %>
+        </ul>
+      </nav>
+
+      <div class="container">
+        <form action="/posts " method="POST" enctype="multipart/form-data">
+          <div class="form">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="post[location]" />
+            <label for="description">Description</label>
+            <input type="text" id="description" name="post[description]" />
+            <label for="images">Images</label>
+            <input type="file" id="images" name="image" />
+            <button class="btn">Add Post</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
